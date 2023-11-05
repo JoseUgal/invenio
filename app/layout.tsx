@@ -17,7 +17,7 @@ export default function RootLayout ({
     <html lang="es">
       <body
         className={classNames(
-          '',
+          'dark',
           'min-h-screen bg-background font-sans antialiased',
           GeistSans.variable
         )}
