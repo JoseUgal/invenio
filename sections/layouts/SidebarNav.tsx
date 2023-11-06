@@ -21,7 +21,21 @@ const NAVIGATION_OPTIONS = [
   {
     href: '/application/inventory',
     label: 'Inventory',
-    icon: Package2
+    icon: Package2,
+    childrens: [
+      {
+        href: '/application/inventory/items',
+        label: 'Items'
+      },
+      {
+        href: '/application/inventory/item-groups',
+        label: 'Item Groups'
+      },
+      {
+        href: '/application/inventory/adjustments',
+        label: 'Inventory Adjustments'
+      }
+    ]
   },
   {
     href: '/application/sales',
@@ -63,7 +77,8 @@ const SidebarNav = () => {
             href={option.href}
             label={option.label}
             icon={option.icon}
-            isActive={pathname.includes(option.href)}
+            childrens={option.childrens}
+            pathname={pathname}
           />
         )
       })}
