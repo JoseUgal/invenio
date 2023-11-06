@@ -2,7 +2,7 @@ import { buttonVariants } from '@/design-system/atoms/button'
 import { classNames } from '@/design-system/shared/classNames'
 import { ChevronRight } from 'lucide-react'
 import Link from 'next/link'
-import { type SidebarNavigationItem } from './sidebar-nav'
+import { type SidebarNavigationItem } from './SidebarNav'
 
 type SidebarNavItemProps = SidebarNavigationItem & {
   isActive?: boolean

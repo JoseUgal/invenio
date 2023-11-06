@@ -1,4 +1,4 @@
-import { HomeNavbar } from '@/sections/layouts/home-navbar'
+import { HomeNavbar } from '@/sections/home'
 
 export default function BackofficeApplicationHomeLayout ({
   children

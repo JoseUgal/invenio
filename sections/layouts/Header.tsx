@@ -8,7 +8,7 @@ import {
   Settings,
   User2
 } from 'lucide-react'
-import { HeaderSearchbar } from './header-searchbar'
+import { HeaderSearchbar } from './HeaderSearchbar'
 import {
   Tooltip,
   TooltipContent,
@@ -20,6 +20,7 @@ import {
   AvatarFallback,
   AvatarImage
 } from '@/design-system/atoms/avatar'
+import { ThemeToggler } from './ThemeToggler'
 
 const Header = () => {
   return (
@@ -42,21 +43,21 @@ const Header = () => {
         <HeaderSearchbar />
       </div>
       <div className="flex items-center">
-        {/* Add */}
-        <div className="pr-2">
-          <TooltipProvider>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button size={'icon'} variant={'default'} className="h-6 w-6">
-                  <Plus className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Quick Create</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
-        </div>
+          <div className='flex items-center mr-2'>
+            {/* Add */}
+            <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button size={'icon'} variant={'default'} className="h-6 w-6">
+                      <Plus className="w-4 h-4" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Quick Create</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+          </div>
 
         <div className="ml-2 flex px-2 border-x">
           {/* Users */}
@@ -116,6 +117,9 @@ const Header = () => {
               <AvatarFallback>C</AvatarFallback>
             </Avatar>
           </Button>
+
+          {/* Theme Toggler */}
+          <ThemeToggler />
 
           {/* Extensions */}
           <TooltipProvider>

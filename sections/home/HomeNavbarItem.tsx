@@ -1,5 +1,5 @@
 import { classNames } from '@/design-system/shared/classNames'
-import { type HomeNavbarLink } from './home-navbar-items'
+import { type HomeNavbarLink } from './data/links'
 import Link from 'next/link'
 
 type HomeNavbarItemProps = HomeNavbarLink & {

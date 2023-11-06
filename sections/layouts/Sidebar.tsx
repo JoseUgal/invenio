@@ -1,7 +1,7 @@
 import { Button } from '@/design-system/atoms/button'
 import { Typography } from '@/design-system/atoms/typography'
 import { ChevronLeft, Package } from 'lucide-react'
-import { SidebarNav } from './sidebar-nav'
+import { SidebarNav } from './SidebarNav'
 import { SubscriptionCard } from '@/sections/subscriptions/subscription-card'
 
 const Sidebar = () => {

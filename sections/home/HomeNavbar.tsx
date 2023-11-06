@@ -1,6 +1,6 @@
 import { Typography } from '@/design-system/atoms/typography'
 import { Building2 } from 'lucide-react'
-import { HomeNavbarItems } from './home-navbar-items'
+import { HomeNavbarItems } from './HomeNavbarItems'
 
 const HomeNavbar = () => {
   return (

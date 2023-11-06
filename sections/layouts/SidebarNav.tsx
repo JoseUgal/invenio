@@ -9,7 +9,7 @@ import {
   BarChart,
   FolderOpen
 } from 'lucide-react'
-import { SidebarNavItem } from './sidebar-nav-item'
+import { SidebarNavItem } from './SidebarNavItem'
 import { usePathname } from 'next/navigation'
 
 const NAVIGATION_OPTIONS = [

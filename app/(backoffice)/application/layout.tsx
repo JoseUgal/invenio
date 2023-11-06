@@ -1,5 +1,4 @@
-import { Header } from '@/sections/layouts/header'
-import { Sidebar } from '@/sections/layouts/sidebar'
+import { Header, Sidebar } from '@/sections/layouts'
 
 export default function DashboardLayout ({
   children
