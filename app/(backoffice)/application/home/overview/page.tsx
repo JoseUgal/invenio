@@ -1,9 +1,13 @@
-import { Typography } from '@/design-system/atoms/typography'
+import { OverviewBanner } from '@/sections/banners'
+import { SalesOverview } from '@/sections/sales'
 
 export default function BackofficeApplicationOverview () {
   return (
     <>
-      <Typography>Overview</Typography>
+      <div className='m-6 space-y-6'>
+        <OverviewBanner />
+        <SalesOverview />
+      </div>
     </>
   )
 }
