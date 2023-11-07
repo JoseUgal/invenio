@@ -28,14 +28,21 @@ const SidebarNavItem = ({
     return (
       <Collapsible>
         <CollapsibleTrigger asChild>
-          <Button variant={'ghost'} className={componentClassNames}>
+          <Link
+            key={href}
+            href={href}
+            className={classNames(
+              buttonVariants({ variant: 'ghost' }),
+              componentClassNames
+            )}
+          >
             <SidebarNavItemContent
               label={label}
               isActive={isActive}
               icon={icon}
               renderFlag={false}
             />
-          </Button>
+          </Link>
         </CollapsibleTrigger>
         <CollapsibleContent>
           {childrens.map((children) => {
