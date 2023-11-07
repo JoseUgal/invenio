@@ -1,5 +1,12 @@
 import { Button } from '@/design-system/atoms/button'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/design-system/atoms/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/design-system/atoms/card'
 import React from 'react'
 
 interface InventoryCardProps {
@@ -18,14 +25,10 @@ const InventoryCard = ({
   return (
     <Card>
       <CardHeader>
-        <CardTitle>
-          {title}
-        </CardTitle>
+        <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent>
-        {children}
-      </CardContent>
+      <CardContent>{children}</CardContent>
       <CardFooter>
         <Button>{buttonText}</Button>
       </CardFooter>
