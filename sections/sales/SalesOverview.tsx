@@ -8,7 +8,7 @@ const SalesOverview = () => {
       <Typography as="h2" variant="h3">
         Sales Activity
       </Typography>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {SALES_ACTIVITY.map(({ label, number, unit }) => (
           <SaleActivityItem
             key={label}
