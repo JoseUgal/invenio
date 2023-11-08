@@ -13,7 +13,6 @@ import {
   FormMessage
 } from '@/design-system/molecules/form'
 import { Button } from '@/design-system/atoms/button'
-import { Textarea } from '@/design-system/atoms/textarea'
 import { useState } from 'react'
 import { FormHeader } from '@/design-system/molecules/form-header'
 
