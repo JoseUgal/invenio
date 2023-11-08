@@ -21,17 +21,19 @@ const formSchema = z.object({
   name: z
     .string()
     .min(2, {
-      message: 'Category name is too short'
+      message: 'Warehouse name is too short'
     })
     .max(50, {
-      message: 'Category name is too long'
+      message: 'Warehouse name is too long'
     }),
+  location: z.string(),
+  type: z.string(),
   description: z.string()
 })
 
 type FormSchema = z.infer<typeof formSchema>
 
-const AddCategoriesForm = () => {
+const AddWarehouseForm = () => {
   const [loading, setLoading] = useState(false)
 
   const form = useForm<FormSchema>({
@@ -69,7 +71,7 @@ const AddCategoriesForm = () => {
   return (
     <section>
       <FormHeader
-        title="New category"
+        title="New Warehouse"
         href="/application/inventory/categories"
       />
 
@@ -83,7 +85,33 @@ const AddCategoriesForm = () => {
                 <FormItem className="sm:col-span-2 space-y-2">
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Type product name" {...field} />
+                    <Input placeholder="Type warehouse name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='location'
+              render={({ field }) => (
+                <FormItem className="sm:col-span-2 space-y-2">
+                  <FormLabel>Location</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Type warehouse location" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name='type'
+              render={({ field }) => (
+                <FormItem className="sm:col-span-2 space-y-2">
+                  <FormLabel>Type</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Type warehouse type" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -96,13 +124,13 @@ const AddCategoriesForm = () => {
                 <FormItem className="w-full">
                   <FormLabel>Description</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Category description" {...field} />
+                    <Textarea placeholder="Warehouse description" {...field} />
                   </FormControl>
                 </FormItem>
               )}
             />
             <Button type="submit" disabled={loading}>
-              Save category
+              Save Warehouse
             </Button>
           </div>
         </form>
@@ -111,6 +139,6 @@ const AddCategoriesForm = () => {
   )
 }
 
-AddCategoriesForm.displayName = 'AddCategoriesForm'
+AddWarehouseForm.displayName = 'AddWarehouseForm'
 
-export { AddCategoriesForm }
+export { AddWarehouseForm }

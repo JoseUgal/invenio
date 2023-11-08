@@ -1,6 +1,5 @@
 'use client'
 
-import { AddUnitFormHeader } from './AddUnitFormHeader'
 import { Input } from '@/design-system/atoms/input'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -16,6 +15,7 @@ import {
 import { Button } from '@/design-system/atoms/button'
 import { Textarea } from '@/design-system/atoms/textarea'
 import { useState } from 'react'
+import { FormHeader } from '@/design-system/molecules/form-header'
 
 const formSchema = z.object({
   name: z
@@ -75,7 +75,7 @@ const AddUnitForm = () => {
 
   return (
     <section>
-      <AddUnitFormHeader title="New Unit" href="/application/inventory/unit" />
+      <FormHeader title="New Unit" href="/application/inventory/units" />
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className="p-4">
@@ -100,7 +100,7 @@ const AddUnitForm = () => {
                 <FormItem className="w-full">
                   <FormLabel>Abbreviation</FormLabel>
                   <FormControl>
-                    <Textarea placeholder="Type unit abbreviation" {...field} />
+                    <Input placeholder="Type unit abbreviation" {...field} />
                   </FormControl>
                 </FormItem>
               )}

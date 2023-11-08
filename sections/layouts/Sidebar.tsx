@@ -6,7 +6,7 @@ import { SubscriptionCard } from '@/sections/subscriptions/subscription-card'
 
 const Sidebar = () => {
   return (
-    <aside className="w-56 min-h-screen h-screen sticky top-0 border-r flex flex-col justify-between overflow-scroll">
+    <aside className="w-56 min-h-screen h-screen sticky left-0 top-0 border-r flex flex-col justify-between overflow-scroll">
       {/* Top Part */}
       <div className="flex flex-col">
         {/* Logo */}

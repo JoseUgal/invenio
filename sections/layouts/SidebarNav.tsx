@@ -40,7 +40,7 @@ const NAVIGATION_OPTIONS = [
         label: 'Categories'
       },
       {
-        href: '/application/inventory/brands',
+        href: '/application/inventory/brands/new',
         label: 'Brands'
       },
       {
@@ -48,7 +48,7 @@ const NAVIGATION_OPTIONS = [
         label: 'Units'
       },
       {
-        href: '/application/inventory/warehouses',
+        href: '/application/inventory/warehouses/new',
         label: 'Warehouses'
       }
     ]
