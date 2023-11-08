@@ -1,3 +1,5 @@
+'use client'
+
 import { type VariantProps } from 'class-variance-authority'
 import React from 'react'
 import { labelVariants } from './variants'

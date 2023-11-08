@@ -6,11 +6,11 @@ import { SubscriptionCard } from '@/sections/subscriptions/subscription-card'
 
 const Sidebar = () => {
   return (
-    <aside className="w-56 min-h-screen border-r flex flex-col justify-between">
+    <aside className="w-56 min-h-screen h-screen sticky top-0 border-r flex flex-col justify-between overflow-scroll">
       {/* Top Part */}
       <div className="flex flex-col">
         {/* Logo */}
-        <div className="h-14 px-4 border-b flex gap-2 items-center justify-start text-primary-foreground bg-primary">
+        <div className="sticky top-0 z-[1] h-14 px-4 border-b flex gap-2 items-center justify-start text-primary-foreground bg-primary">
           <Package />
           <Typography as="p" variant="h3" className="font-semibold">
             Invenio

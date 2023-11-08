@@ -34,6 +34,22 @@ const NAVIGATION_OPTIONS = [
       {
         href: '/application/inventory/adjustments',
         label: 'Inventory Adjustments'
+      },
+      {
+        href: '/application/inventory/categories/new',
+        label: 'Categories'
+      },
+      {
+        href: '/application/inventory/brands',
+        label: 'Brands'
+      },
+      {
+        href: '/application/inventory/units/new',
+        label: 'Units'
+      },
+      {
+        href: '/application/inventory/warehouses',
+        label: 'Warehouses'
       }
     ]
   },

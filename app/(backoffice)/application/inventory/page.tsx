@@ -16,7 +16,7 @@ export default function BackofficeApplicationInventoryLayout () {
             src={'/inventory/inventory01.svg'}
             width={100}
             height={100}
-            alt=''
+            alt=""
           />
         </InventoryCard>
         <InventoryCard
@@ -28,7 +28,7 @@ export default function BackofficeApplicationInventoryLayout () {
             src={'/inventory/inventory02.svg'}
             width={100}
             height={100}
-            alt=''
+            alt=""
           />
         </InventoryCard>
         <InventoryCard
@@ -40,7 +40,7 @@ export default function BackofficeApplicationInventoryLayout () {
             src={'/inventory/inventory03.svg'}
             width={100}
             height={100}
-            alt=''
+            alt=""
           />
         </InventoryCard>
         <InventoryCard
@@ -52,7 +52,7 @@ export default function BackofficeApplicationInventoryLayout () {
             src={'/inventory/inventory04.svg'}
             width={100}
             height={100}
-            alt=''
+            alt=""
           />
         </InventoryCard>
       </div>
