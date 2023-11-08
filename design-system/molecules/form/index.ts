@@ -8,3 +8,5 @@ export {
   FormMessage,
   FormField
 } from './form'
+
+export { FormInput } from './form-input'

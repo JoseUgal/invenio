@@ -16,6 +16,13 @@ import { Button } from '@/design-system/atoms/button'
 import { Textarea } from '@/design-system/atoms/textarea'
 import { useState } from 'react'
 import { FormHeader } from '@/design-system/molecules/form-header'
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/design-system/atoms/select'
 
 const formSchema = z.object({
   name: z
@@ -27,7 +34,7 @@ const formSchema = z.object({
       message: 'Warehouse name is too long'
     }),
   location: z.string(),
-  type: z.string(),
+  type: z.enum(['main', 'branch']),
   description: z.string()
 })
 
@@ -38,10 +45,7 @@ const AddWarehouseForm = () => {
 
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      description: ''
-    }
+    defaultValues: {}
   })
 
   const handleSubmit = async (values: FormSchema) => {
@@ -77,12 +81,12 @@ const AddWarehouseForm = () => {
 
       <Form {...form}>
         <form onSubmit={form.handleSubmit(handleSubmit)} className="p-4">
-          <div className="space-y-4">
+          <div className="grid gap-4 sm:grid-cols-2">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="sm:col-span-2 space-y-2">
+                <FormItem className="w-full">
                   <FormLabel>Name</FormLabel>
                   <FormControl>
                     <Input placeholder="Type warehouse name" {...field} />
@@ -91,9 +95,35 @@ const AddWarehouseForm = () => {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
-              name='location'
+              name="type"
+              render={({ field }) => (
+                <FormItem className="w-full">
+                  <FormLabel>Type</FormLabel>
+                  <Select
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a warehouse type" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="main">Main</SelectItem>
+                      <SelectItem value="branch">Branch</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="location"
               render={({ field }) => (
                 <FormItem className="sm:col-span-2 space-y-2">
                   <FormLabel>Location</FormLabel>
@@ -104,35 +134,24 @@ const AddWarehouseForm = () => {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
-              name='type'
+              name="description"
               render={({ field }) => (
                 <FormItem className="sm:col-span-2 space-y-2">
-                  <FormLabel>Type</FormLabel>
+                  <FormLabel>Description</FormLabel>
                   <FormControl>
-                    <Input placeholder="Type warehouse type" {...field} />
+                    <Textarea placeholder="Warehouse description" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="description"
-              render={({ field }) => (
-                <FormItem className="w-full">
-                  <FormLabel>Description</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="Warehouse description" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <Button type="submit" disabled={loading}>
-              Save Warehouse
-            </Button>
           </div>
+          <Button type="submit" disabled={loading}>
+            Save Warehouse
+          </Button>
         </form>
       </Form>
     </section>

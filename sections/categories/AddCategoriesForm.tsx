@@ -98,6 +98,7 @@ const AddCategoriesForm = () => {
                   <FormControl>
                     <Textarea placeholder="Category description" {...field} />
                   </FormControl>
+                  <FormMessage />
                 </FormItem>
               )}
             />
