@@ -1,22 +1,8 @@
 'use client'
 
 import { Button } from '@/design-system/atoms/button'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/design-system/atoms/select'
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  FormInput
-} from '@/design-system/molecules/form'
+
+import { Form, FormInput, FormSelect } from '@/design-system/molecules/form'
 import { FormHeader } from '@/design-system/molecules/form-header'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { type Control, useForm } from 'react-hook-form'
@@ -56,26 +42,30 @@ const formSchema = z.object({
   }),
   sku: z.string(),
   barcode: z.string(),
-  quantity: z.number({
-    required_error: 'Item quantity is required'
-  }),
+  quantity: z
+    .string({
+      required_error: 'Item quantity is required'
+    })
+    .transform((v) => Number(v) || 0),
   brandId: z.string({
     required_error: 'Item brand is required'
   }),
   unitId: z.string({
     required_error: 'Item unit is required'
   }),
-  unitPrice: z.number().default(0),
-  costPrice: z.number().default(0),
-  reOrderPoint: z.number({
-    required_error: 'Item re-order point is required'
-  }),
+  unitPrice: z.string().transform((v) => Number(v) || 0),
+  costPrice: z.string().transform((v) => Number(v) || 0),
+  reOrderPoint: z
+    .string({
+      required_error: 'Item re-order point is required'
+    })
+    .transform((v) => Number(v) || 0),
   warehouseId: z.string({
     required_error: 'Item warehouse is required'
   }),
   images: z.any(),
-  weight: z.number(),
-  taxRate: z.number(),
+  weight: z.string().transform((v) => Number(v) || 0),
+  taxRate: z.string().transform((v) => Number(v) || 0),
   notes: z.string()
 })
 
@@ -201,33 +191,49 @@ const InventoryAddItemForm = () => {
               label="Notes"
             />
 
-            <FormField
-              control={form.control}
+            <FormSelect
+              label="Warehouse"
+              control={form.control as unknown as Control}
               name="warehouseId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Unit</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a warehouse" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {warehouses.map(({ id, name }) => (
-                        <SelectItem key={id} value={id}>
-                          {name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              placeholder="Select a warehouse"
+            >
+              {warehouses.map(({ id, name }) => (
+                <FormSelect.Item key={id} label={name} value={id} />
+              ))}
+            </FormSelect>
+
+            <FormSelect
+              label="Brand"
+              control={form.control as unknown as Control}
+              name="brandId"
+              placeholder="Select a brand"
+            >
+              {brands.map(({ id, name }) => (
+                <FormSelect.Item key={id} label={name} value={id} />
+              ))}
+            </FormSelect>
+
+            <FormSelect
+              label="Category"
+              control={form.control as unknown as Control}
+              name="categoryId"
+              placeholder="Select a category"
+            >
+              {categories.map(({ id, name }) => (
+                <FormSelect.Item key={id} label={name} value={id} />
+              ))}
+            </FormSelect>
+
+            <FormSelect
+              label="Unit"
+              control={form.control as unknown as Control}
+              name="unitId"
+              placeholder="Select a unit"
+            >
+              {units.map(({ id, abbreviation }) => (
+                <FormSelect.Item key={id} label={abbreviation} value={id} />
+              ))}
+            </FormSelect>
           </div>
 
           <Button>Save Item</Button>

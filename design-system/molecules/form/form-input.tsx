@@ -1,7 +1,14 @@
 'use client'
 
 import { type Control } from 'react-hook-form'
-import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '.'
+import {
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from '.'
 import { Input } from '@/design-system/atoms/input'
 import { type InputHTMLAttributes } from 'react'
 
@@ -13,7 +20,8 @@ interface ControlProps {
 
 type InputProps = InputHTMLAttributes<HTMLInputElement>
 
-type FormInputProps = ControlProps & InputProps & {
+type FormInputProps = ControlProps &
+InputProps & {
   label?: string
   description?: string
   disableMessages?: boolean
@@ -37,7 +45,7 @@ const FormInput = ({
         <FormItem className={className}>
           {label && <FormLabel>{label}</FormLabel>}
           <FormControl>
-            <Input type={type} {...restInputProps} {...field} />
+            <Input {...restInputProps} {...field} type={type} />
           </FormControl>
           {description && <FormDescription>{description}</FormDescription>}
           {!disableMessages && <FormMessage />}
