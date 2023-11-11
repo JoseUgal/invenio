@@ -5,8 +5,10 @@ import { Button } from '@/design-system/atoms/button'
 import { Form, FormInput, FormSelect } from '@/design-system/molecules/form'
 import { FormHeader } from '@/design-system/molecules/form-header'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { UploadButton } from '@/libs/uploadthing'
 import { type Control, useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { InventoryAddItemFormUploader } from './InventoryAddItemFormUploader'
 
 const brands = [
   { id: '1', name: 'Brand #1' },
@@ -88,19 +90,13 @@ const InventoryAddItemForm = () => {
           className="space-y-4 p-4"
         >
           <div className="grid sm:grid-cols-2 gap-4">
-            {/* <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem className="w-full">
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
+            <div className="sm:col-span-2">
+              <InventoryAddItemFormUploader
+                onImageUploaded={(url) => {
+                  console.log('Uploaded URL, ', url)
+                }}
+              />
+            </div>
 
             <FormInput
               control={form.control as unknown as Control}

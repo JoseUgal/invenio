@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation'
 
 const NAVIGATION_OPTIONS = [
   {
-    href: '/application/home',
+    href: '/application/home/overview',
     label: 'Home',
     icon: Home
   },
@@ -24,7 +24,7 @@ const NAVIGATION_OPTIONS = [
     icon: Package2,
     childrens: [
       {
-        href: '/application/inventory/items',
+        href: '/application/inventory/items/new',
         label: 'Items'
       },
       {
